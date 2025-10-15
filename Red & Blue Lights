@@ -1,0 +1,19 @@
+import time
+import board
+import neopixel
+
+# Settings
+nPix = 20               # number of led's in the strip
+ledPin = board.GP0      # Pin on the RPi Pico (most likely GP0, GP15, or GP27)
+
+pixels = neopixel.NeoPixel(ledPin, nPix)
+
+def lightUp(n=20, color=(0,0,200)):
+    for i in range(n):
+        pixels[i] = color
+        time.sleep(0.1)
+
+# function call
+for i in range(10):
+    lightUp()
+    lightUp(n=20, color=(250,0,0))
